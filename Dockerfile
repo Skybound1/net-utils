@@ -6,7 +6,7 @@ RUN apt-get update && \
         dnsutils \
         jq \
         net-tools \
-        netcat-openbsd \
+        netcat-traditional \
         nmap \
         socat \
         tcpdump \
