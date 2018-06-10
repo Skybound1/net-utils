@@ -4,6 +4,7 @@ RUN apt-get update && \
     apt-get install -y \
         curl \
         dnsutils \
+        iputils-ping \
         jq \
         net-tools \
         netcat-traditional \
@@ -11,5 +12,6 @@ RUN apt-get update && \
         socat \
         tcpdump \
         traceroute \
+        vim \
         && \
     rm -rf /var/lib/apt/lists/*
