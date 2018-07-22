@@ -17,3 +17,13 @@ RUN apt-get update && \
         vim \
         && \
     rm -rf /var/lib/apt/lists/*
+
+# Adds docker client if in a swarm
+RUN curl https://download.docker.com/linux/static/stable/x86_64/$(curl -s https://download.docker.com/linux/static/stable/x86_64/ | grep "href=\"docker" | cut -d \" -f 2 | tail -n1) | tar -xz -C /tmp/ && \
+    mv /tmp/docker/docker /usr/local/bin && \
+    rm -rf /tmp/*
+
+# Adds kubectl if in a kube cluster
+RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && \
+    mv kubectl /usr/local/bin && \
+    chmod +x /usr/local/bin/kubectl
