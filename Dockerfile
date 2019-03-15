@@ -6,11 +6,13 @@ RUN apt-get update && \
     apt-get install -y \
         curl \
         dnsutils \
+        iproute2 \
         iputils-ping \
         jq \
         net-tools \
         netcat-traditional \
         nmap \
+        openssh-client \
         socat \
         tcpdump \
         traceroute \
