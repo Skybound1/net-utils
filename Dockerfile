@@ -29,3 +29,8 @@ RUN curl https://download.docker.com/linux/static/stable/x86_64/$(curl -s https:
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && \
     mv kubectl /usr/local/bin && \
     chmod +x /usr/local/bin/kubectl
+
+# Adds testssl.sh for ssl scanning
+RUN curl -l http://testssl.sh -o testssl.sh && \
+   mv testssl.sh /usr/local/bin/testssl && \
+   chmod +x /usr/local/bin/testssl
