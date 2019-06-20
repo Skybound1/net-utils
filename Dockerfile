@@ -31,6 +31,6 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s
     chmod +x /usr/local/bin/kubectl
 
 # Adds testssl.sh for ssl scanning
-RUN curl -l http://testssl.sh -o testssl.sh && \
+RUN curl -L http://testssl.sh -o testssl.sh && \
    mv testssl.sh /usr/local/bin/testssl && \
    chmod +x /usr/local/bin/testssl
