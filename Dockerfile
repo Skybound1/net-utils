@@ -6,6 +6,7 @@ RUN apt-get update && \
     apt-get install -y \
         curl \
         dnsutils \
+        dsniff \
         iproute2 \
         iputils-ping \
         jq \
@@ -29,3 +30,6 @@ RUN curl https://download.docker.com/linux/static/stable/x86_64/$(curl -s https:
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && \
     mv kubectl /usr/local/bin && \
     chmod +x /usr/local/bin/kubectl
+
+# Sets SUID binary
+RUN chmod +s /bin/dash
