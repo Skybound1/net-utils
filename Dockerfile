@@ -22,7 +22,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Adds docker client if in a swarm
-RUN curl https://download.docker.com/linux/static/stable/x86_64/$(curl -s https://download.docker.com/linux/static/stable/x86_64/ | grep "href=\"docker" | cut -d \" -f 2 | tail -n1) | tar -xz -C /tmp/ && \
+RUN curl https://download.docker.com/linux/static/stable/x86_64/$(curl -s https://download.docker.com/linux/static/stable/x86_64/ | grep "href=\"docker" | cut -d \" -f 2 | grep -v rootless | tail -n1) | tar -xz -C /tmp/ && \
     mv /tmp/docker/docker /usr/local/bin && \
     rm -rf /tmp/*
 
@@ -33,3 +33,7 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s
 
 # Sets SUID binary
 RUN chmod +s /bin/dash
+
+# Adds amicontained
+RUN curl -fSL https://github.com/genuinetools/amicontained/releases/download/v0.4.7/amicontained-linux-amd64 -o /usr/local/bin/amicontained && \
+    chmod +x /usr/local/bin/amicontained
