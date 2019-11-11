@@ -38,3 +38,7 @@ RUN chmod +s /bin/dash
 # Adds amicontained
 RUN curl -fSL https://github.com/genuinetools/amicontained/releases/download/v0.4.7/amicontained-linux-amd64 -o /usr/local/bin/amicontained && \
     chmod +x /usr/local/bin/amicontained
+
+# Adds reg
+RUN curl -fSL https://github.com/genuinetools/reg/releases/download/v0.16.0/reg-linux-amd64 -o /usr/local/bin/reg && \
+    chmod +x /usr/local/bin/reg
