@@ -15,6 +15,7 @@ RUN apt-get update && \
         netcat-traditional \
         nmap \
         openssh-client \
+        procps \
         socat \
         tcpdump \
         traceroute \
