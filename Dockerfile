@@ -11,6 +11,7 @@ RUN apt-get update && \
         iproute2 \
         iputils-ping \
         jq \
+        less \
         net-tools \
         netcat-traditional \
         nmap \
