@@ -1,3 +1,11 @@
+FROM clux/muslrust:stable as freezer
+
+
+RUN git clone https://github.com/WithSecureLabs/freezer.git && \
+    cd freezer && \
+    cargo build --target x86_64-unknown-linux-musl --release && \
+    cp target/x86_64-unknown-linux-musl/release/freezer /
+
 FROM debian:stable-slim
 
 # Useful networking things
@@ -5,6 +13,7 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y \
         arp-scan \
+        awscli \
         curl \
         dnsutils \
         dsniff \
@@ -44,3 +53,5 @@ RUN curl -fSL https://github.com/genuinetools/amicontained/releases/download/v0.
 # Adds reg
 RUN curl -fSL https://github.com/genuinetools/reg/releases/download/v0.16.0/reg-linux-amd64 -o /usr/local/bin/reg && \
     chmod +x /usr/local/bin/reg
+
+COPY --from=freezer /freezer /usr/local/bin/freezer
