@@ -54,4 +54,5 @@ RUN curl -fSL https://github.com/genuinetools/amicontained/releases/download/v0.
 RUN curl -fSL https://github.com/genuinetools/reg/releases/download/v0.16.0/reg-linux-amd64 -o /usr/local/bin/reg && \
     chmod +x /usr/local/bin/reg
 
+# Adds freezer
 COPY --from=freezer /freezer /usr/local/bin/freezer
