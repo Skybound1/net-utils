@@ -17,6 +17,7 @@ RUN apt-get update && \
         curl \
         dnsutils \
         dsniff \
+        git \
         iproute2 \
         iputils-ping \
         jq \
