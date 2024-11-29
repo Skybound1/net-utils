@@ -57,3 +57,10 @@ RUN curl -fSL https://github.com/genuinetools/reg/releases/download/v0.16.0/reg-
 
 # Adds freezer
 COPY --from=freezer /freezer /usr/local/bin/freezer
+
+# Adds kubectl-execws
+RUN mkdir /tmp/exec && \
+    curl -L https://github.com/jpts/kubectl-execws/releases/download/v0.3.1/kubectl-execws_v0.3.1_linux_amd64.tar.gz | tar -xz -C /tmp/exec && \
+    mv /tmp/exec/kubectl-execws /usr/local/bin && \
+    chmod +x /usr/local/bin/kubectl-execws && \
+    rm -rf /tmp/exec
