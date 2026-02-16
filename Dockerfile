@@ -64,3 +64,12 @@ RUN mkdir /tmp/exec && \
     mv /tmp/exec/kubectl-execws /usr/local/bin && \
     chmod +x /usr/local/bin/kubectl-execws && \
     rm -rf /tmp/exec
+
+# Adds coredns-enum
+
+RUN URL=$(curl https://api.github.com/repos/jpts/coredns-enum/releases/latest | jq '.assets[] | select(.name | contains("linux_amd64")).browser_download_url' -r) && \
+    mkdir /tmp/coredns && \
+    curl -L $URL | tar -xz -C /tmp/coredns && \
+    mv /tmp/coredns/coredns-enum /usr/local/bin && \
+    chmod +x /usr/local/bin/coredns-enum && \
+    rm -rf /tmp/coredns
