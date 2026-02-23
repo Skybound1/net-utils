@@ -22,6 +22,7 @@ RUN apt-get update && \
         iputils-ping \
         jq \
         less \
+        ncat \
         net-tools \
         netcat-traditional \
         nmap \
