@@ -67,7 +67,6 @@ RUN mkdir /tmp/exec && \
     rm -rf /tmp/exec
 
 # Adds coredns-enum
-
 RUN URL=$(curl https://api.github.com/repos/jpts/coredns-enum/releases/latest | jq '.assets[] | select(.name | contains("linux_amd64")).browser_download_url' -r) && \
     mkdir /tmp/coredns && \
     curl -L $URL | tar -xz -C /tmp/coredns && \
