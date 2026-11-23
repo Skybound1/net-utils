@@ -36,8 +36,8 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Adds docker client if in a swarm
-RUN curl https://download.docker.com/linux/static/stable/x86_64/$(curl -s https://download.docker.com/linux/static/stable/x86_64/ | grep "href=\"docker" | cut -d \" -f 2 | grep -v rootless | tail -n1) | tar -xz -C /tmp/ && \
-    mv /tmp/docker/docker /usr/local/bin && \
+RUN curl https://download.docker.com/linux/static/stable/x86_64/$(curl -s https://download.docker.com/linux/static/stable/x86_64/ | grep "href=\"docker" | cut -d \" -f 2 | grep -v rootless | grep -v sha256 | grep "docker-cli" | tail -n1) | tar -xz -C /tmp/ && \
+    mv /tmp/bin/docker /usr/local/bin && \
     rm -rf /tmp/*
 
 # Adds kubectl if in a kube cluster
