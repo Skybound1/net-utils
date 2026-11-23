@@ -1,7 +1,7 @@
 FROM clux/muslrust:stable as freezer
 
 
-RUN git clone https://github.com/WithSecureLabs/freezer.git && \
+RUN git clone https://github.com/ReversecLabs/freezer.git && \
     cd freezer && \
     cargo build --target x86_64-unknown-linux-musl --release && \
     cp target/x86_64-unknown-linux-musl/release/freezer /
